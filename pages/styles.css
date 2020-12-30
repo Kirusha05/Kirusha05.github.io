@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  --scrollbar-bg: #1a1a2e;
+  --contrast: #e94560;
+  --fb-blue: #2d88ff;
+  --fb-nav-gray: #242526;
+  --fb-bg-dark: #18191a;
+  --fb-gray: #3a3b3c;
+  --fb-primary-text: #e4e6eb;
+  --fb-secondary-text: #b0b3b8;
+  --navbar-width: 16rem;
+
+  --equation-elements: rgb(46, 245, 212);
+  --equation-coefficient: rgb(57, 255, 123);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--fb-bg-dark);
+}
+
+p {
+  margin: 0.5rem 0;
+  line-height: 1.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+main li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+}
+
+.list-num {
+  color: var(--fb-blue);
+}
+
+.ecuatii_exemplu {
+  background: var(--fb-gray);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.coefficient {
+  color: var(--equation-coefficient);
+}
+
+.substance {
+  color: var(--equation-elements);
+}
+
+.interaction-substance {
+  padding-top: 0.5rem;
+}
+
+sub {
+  font-size: 0.7rem;
+}
+
+a {
+  color: var(--fb-blue);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--contrast);
+}
+
+main {
+  margin-left: var(--navbar-width);
+  padding: 1rem 0;
+}
+
+.subiect {
+  color: var(--fb-blue);
+  font-weight: bold;
+  margin: 1rem 0;
+  font-size: 3rem;
+}
+
+.sectiune {
+  margin-bottom: 2rem;
+  padding-top: 0.2rem; /* For anchor scroll */
+}
+
+.sectiune_titlu {
+  color: var(--fb-primary-text);
+  font-weight: bold;
+  border-bottom: 1px solid var(--fb-blue);
+}
+
+.sub-sectiune {
+  margin-top: 2rem;
+  padding-top: 0.5rem;
+}
+
+.sub-sectiune:not(:last-child) {
+  border-bottom: 0.1rem solid var(--fb-nav-gray);
+}
+
+.sub-sectiune_titlu {
+  color: var(--contrast);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.deosebit {
+  color: var(--contrast);
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.important {
+  color: var(--fb-blue);
+  font-weight: bold;
+}
+
+.container {
+  width: 60vw;
+  margin: 0 auto;
+  text-align: justify;
+  color: var(--fb-primary-text);
+}
+
+.navbar {
+  top: 0;
+  width: var(--navbar-width);
+  height: 100vh;
+  position: fixed;
+  background-color: var(--fb-nav-gray);
+  border-right: 0.2rem solid var(--fb-blue);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+.logo {
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fb-blue);
+  font-size: 2.25rem;
+}
+
+.navbar_sections {
+  flex-grow: 3;
+  padding: 2rem;
+}
+
+.nav_section {
+  margin-bottom: 2rem;
+}
+
+.nav_section-name {
+  color: var(--fb-secondary-text);
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 0.75rem;
+  border-bottom: 0.1rem solid var(--fb-gray);
+}
+
+.navbar_sub-sections {
+  padding-left: 1rem;
+}
+
+.nav_sub-section {
+  margin-bottom: 0.75rem;
+}
+
+.nav_sub-section-name {
+  text-transform: capitalize;
+  line-height: 1rem;
+  color: var(--fb-primary-text);
+}
+
+.nav_sub-section-name:hover {
+  color: var(--contrast);
+}
+
+#lista-setm {
+  border: 1px solid var(--fb-blue);
+  border-radius: 5px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.chemical-element {
+  font-weight: bold;
+  color: var(--contrast);
+}
+
+.nav-section-visible {
+  color: var(--contrast);
+}
+
+.footer {
+  background-color: var(--fb-nav-gray);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  font-family: monospace;
+  line-height: 2rem;
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.2rem;
+  background-color: var(--fb-blue);
+  position: relative;
+  top: -6rem;
+}
+
+/* Small screens */
+@media only screen and (max-width: 850px) {
+  :root {
+    font-size: 15px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  main {
+    margin: 0;
+  }
+
+  .container {
+    width: 90vw;
+  }
+
+  .footer {
+    line-height: 1.5rem;
+  }
+}

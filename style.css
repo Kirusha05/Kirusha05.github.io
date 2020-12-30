@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  --bg-primary: #16213e;
+  --bg-secondary: #0f3460;
+  --bg-accent: #1a1a2e;
+  --bg-contrast: #e94560;
+  --text-primary: #ddd;
+
+  --contrast: #e94560;
+  --fb-blue: #2d88ff;
+  --fb-nav-gray: #242526;
+  --fb-bg-dark: #18191a;
+  --fb-gray: #3a3b3c;
+  --fb-primary-text: #e4e6eb;
+  --fb-secondary-text: #b0b3b8;
+  --navbar-width: 16rem;
+
+  height: -webkit-fill-available; /* no scroll on mobile*/
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--fb-nav-gray);
+  color: var(--fb-primary-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: -webkit-fill-available; /* no scroll on mobile*/
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 20vh;
+  border-bottom: 0.2rem solid var(--contrast);
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px var(--fb-secondary-text);
+  }
+  to {
+    text-shadow: 0 0 30px var(--fb-secondary-text);
+  }
+}
+
+.navbar {
+  height: 80vh;
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  gap: 2rem; /* Shorthand */
+  padding: 2rem;
+  /* justify-items: center; */
+  /* align-items: center; */
+}
+
+.substance-btn {
+  background-color: var(--fb-nav-gray);
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 9px #0e0f0f, -5px -5px 9px #3a3b3d;
+  transition: 0.3s ease;
+  outline: none;
+}
+
+.substance-btn a {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--fb-primary-text);
+}
+
+.substance-btn:hover {
+  box-shadow: inset 5px 5px 9px #0e0f0f, inset -5px -5px 9px #3a3b3d;
+}
+
+.substance-btn a:hover {
+  font-weight: bold;
+  color: var(--fb-blue);
+  text-shadow: 0 0 10px var(--fb-blue);
+}
+
+@media only screen and (max-width: 850px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .substance-btn a {
+    font-size: 1.2rem;
+  }
+}
