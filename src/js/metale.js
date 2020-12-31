@@ -1,15 +1,20 @@
+const setmEl = document.getElementById('lista-setm');
 const clasificareEl = document.getElementById('clasificare');
 const propChimiceEl = document.getElementById('proprietati-chimice');
+const raspandireEl = document.getElementById('răspândire');
 const navElement = document.getElementById('navbar_sections');
 
-import formatEquation from '../format.js';
-import basesJSON from '../data/baze_info.js';
+import formatEquation from './format.js';
+import metalsJSON from '../../data/metale_info.js';
 
 let sectionsDistanceFromTopArray = [];
 
 function init() {
-  createClasificationSection(basesJSON);
-  createRulesSection(basesJSON);
+  createSETM(metalsJSON);
+  createClasificationSection(metalsJSON);
+  createSpreadingSection(metalsJSON);
+  createRulesSection(metalsJSON);
+  formatSetmKeyword();
   createNav();
 }
 
@@ -23,21 +28,45 @@ function init() {
     formatSetmKeyword();
   }) */
 
-// Clasificarea bazelor
+// SETM
+function createSETM(JSON) {
+  let listaSETM = ``;
+  JSON["SETM"].forEach((element, index, array) => {
+    listaSETM +=
+      `<span class="chemical-element">${element}</span>`;
+    // Daca nu este ultimul element, adauga virgula si spatiu
+    if (index !== array.length - 1) {
+      listaSETM += `, `;
+    }
+  });
+  // Adauga lista SETM in DOM
+  setmEl.innerHTML = listaSETM;
+}
+
+// Clasificarea metalelor
 function createClasificationSection(JSON) {
   let clasificareHTML = ``;
   clasificareHTML += `<ul>`;
-
-  JSON["clasificare"].forEach(tipulBaz => {
-    clasificareHTML += `<li><span class="deosebit">• ${tipulBaz}</span></li>`
-  })
-
+  for (let tipulMet in JSON["clasificare"]) {
+    clasificareHTML += `<li><span class="deosebit">${tipulMet}</span>: ${JSON["clasificare"][tipulMet]}.</li>`;
+  }
   clasificareHTML += `</ul>`;
-
-  clasificareHTML += `<p>Bazele alcaline sunt bazele metalelor alcaline sau alcalino-pământoase (grupa I și II, subgrupa principală).</p>`
 
   // Adauga lista in DOM
   clasificareEl.insertAdjacentHTML('beforeend', clasificareHTML);
+}
+
+// Raspandirea metalelor
+function createSpreadingSection(JSON) {
+  let raspandireHTML = ``;
+  raspandireHTML += `<ul>`;
+  JSON["raspandirea"].forEach((rule, index) => {
+    raspandireHTML += `<li><span class="list-num">${index + 1}.</span> ${rule}.</li>`
+  })
+  raspandireHTML += `</ul>`;
+
+  // Adauga lista in DOM
+  raspandireEl.insertAdjacentHTML('beforeend', raspandireHTML);
 }
 
 // Proprietati chimice
@@ -73,6 +102,12 @@ function createRulesSection(JSON) {
 
   // Adauga regulile in DOM
   propChimiceEl.insertAdjacentHTML('beforeend', reguliHTML);
+}
+
+function formatSetmKeyword() {
+  // g for all occurences, i for case insesitive
+  propChimiceEl.innerHTML = propChimiceEl.innerHTML.replace(/(setm)/gi, '<a href="#setm">$1</a>')
+  raspandireEl.innerHTML = raspandireEl.innerHTML.replace(/(setm)/gi, '<a href="#setm">$1</a>')
 }
 
 function createNav() {

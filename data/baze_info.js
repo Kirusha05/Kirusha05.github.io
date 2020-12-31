@@ -12,7 +12,8 @@ let baze = {
     "acizii": {
       "reguli": [
         "Baza este alcalină (tare) și acidul este tare, se formează Sare + Apă",
-        "Baza este insolubilă și acidul este tare, se formează Sare + Apă"
+        "Baza este insolubilă și acidul este tare, se formează Sare + Apă",
+        "Această reacție este una de <span class=\"important\">neutralizare<span>"
       ],
       "reactii_exemplu": [
         "2KOH + H2SO4 ➞ K2SO4 + 2H2O",
